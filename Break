@@ -1,0 +1,6 @@
+a = input("Enter a word:")
+for i in a:
+    if(i=='a'):
+        print("a is found")
+    else:
+        print("WompWomp a not found")
