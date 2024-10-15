@@ -1,0 +1,24 @@
+import random # Importing module
+
+playing = True # Initialise
+
+number = str(random.randint(0,9)) # Random in-built function
+
+print("I will generate a number from 10 to 20, and you have to guess the number.")
+
+print("The game ends when you guess the correct number!")
+
+# Iterate loop till the condition is true
+
+while playing:
+  guess = input("Give me your best guess! \n")
+
+  if number == guess:
+    print("You win the game!")
+    print("The correct number was:", number)
+    break
+  else:  
+    print(f"Your guess {guess} isn't quite right, try again.\n")  
+   
+
+    
