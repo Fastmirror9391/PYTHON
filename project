@@ -1,0 +1,29 @@
+def square_and_separate(start, end):
+  """Calculates squares of numbers in a range, then separates odd and even squares.
+
+  Args:
+    start: The starting number of the range.
+    end: The ending number of the range.
+
+  Returns:
+    A tuple containing two lists:
+      - The first list contains even squares.
+      - The second list contains odd squares.
+  """
+  squares = [i**2 for i in range(start, end + 1)]
+  even_squares = [x for x in squares if x % 2 == 0]
+  odd_squares = [x for x in squares if x % 2 != 0]
+  return even_squares, odd_squares
+
+# Get input from the user
+start = int(input("Enter the starting number: "))
+end = int(input("Enter the ending number: "))
+
+# Calculate and separate squares
+even_squares, odd_squares = square_and_separate(start, end)
+
+# Print the results
+print("Even squares:", even_squares)
+print("Odd squares:", odd_squares)
+
+
