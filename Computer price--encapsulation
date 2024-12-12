@@ -1,0 +1,19 @@
+class Computer():
+      def __init__(self):
+        self.__max_price = 1000
+      def sell(self):
+        print("Selling price is:",format(self.__max_price))
+      def setmaxprice(self,price):
+          self.__max_price = price
+Bad_Computer = Computer()
+Bad_Computer.sell()
+Bad_Computer.__max_price = 1100
+Bad_Computer.sell()  
+Bad_Computer.setmaxprice(1100)
+Bad_Computer.sell()      
+            
+           
+          
+
+
+
