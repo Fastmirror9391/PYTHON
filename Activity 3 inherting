@@ -1,0 +1,20 @@
+class Vehicle:
+    def __init__(self, num_passengers):
+        self.num_passengers = num_passengers
+
+    def calculate_total_fare(self):
+        # This method will be overridden in the Bus class
+        raise NotImplementedError("Subclasses must implement this method")
+
+class Bus(Vehicle):
+    def __init__(self, num_passengers, fare_per_passenger):
+        super().__init__(num_passengers)
+        self.fare_per_passenger = fare_per_passenger
+
+    def calculate_total_fare(self):
+        return self.num_passengers * self.fare_per_passenger
+
+
+bus = Bus(40, 2.5)  
+total_fare = bus.calculate_total_fare()
+print("Total fare:", total_fare)  
