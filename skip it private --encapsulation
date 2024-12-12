@@ -1,0 +1,12 @@
+class private_class():
+    __privateVar = 13
+    def __privMeth(self):
+        print("I am learning Encapsulation")
+        
+    def Hello(self):
+        print("My private variable is ",self.__privateVar)
+        self.__privMeth()
+
+School_Bus = private_class()
+
+School_Bus.Hello()
