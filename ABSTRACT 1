@@ -1,0 +1,13 @@
+from abc import ABC,abstractmethod
+class ABSclass(ABC):
+    def code (self,x):
+        print("Passed values:",x)
+    @abstractmethod
+    def code_2 (self):
+        print("We are in the world of ABS class")
+class test_class(ABSclass):
+    def code_2 (self):
+        print("We are in the world of ABS class")
+Bus = test_class()
+Bus.code_2()
+Bus.code(23)
