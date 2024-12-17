@@ -1,0 +1,7 @@
+class ReverseWords:
+    def reverse_string(self, input_string):
+        # Split the string into words
+        words = input_string.split()
+        # Reverse the order of words
+        reversed_words = words[::-1]
+       
