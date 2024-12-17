@@ -1,0 +1,25 @@
+class animal(ABC):
+    def move(self):
+        pass
+class human(animal):
+    def move(self):
+        print("LOL I can walk and run LOL")
+class dog(animal):
+    def move(self):
+        print("HEHEHAHA I CAN BARK")
+
+class lion(animal):
+    def move(self):
+        print("HEHEHAHA HEHEHAHA I can roar")
+
+Happy_Bus = human()
+Happy_Bus.move()
+Angry_Bus = dog()
+Angry_Bus.move()
+Sad_Bus = lion()
+Sad_Bus.move()
+
+
+
+
+    
