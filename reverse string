@@ -4,4 +4,12 @@ class ReverseWords:
         words = input_string.split()
         # Reverse the order of words
         reversed_words = words[::-1]
-       
+        # Join the words back into a single string
+        return ' '.join(reversed_words)
+
+# Example usage
+if __name__ == "__main__":
+    obj = ReverseWords()
+    input_string = "Hello world this is Python"
+    print("Original String:", input_string)
+    print("Reversed String:", obj.reverse_string(input_string))
