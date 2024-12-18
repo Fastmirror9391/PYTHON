@@ -1,0 +1,29 @@
+class BMW:
+    def car_info(self):
+        print("BMW is known for luxury and performance.")
+
+    def max_speed(self):
+        print("BMW's max speed is 250 km/h.")
+
+class Ferrari:
+    def car_info(self):
+        print("Ferrari is famous for speed and design.")
+
+    def max_speed(self):
+        print("Ferrari's max speed is 350 km/h.")
+
+# Polymorphic function
+def display_car_info(car):
+    car.car_info()
+    car.max_speed()
+
+# Create objects of both classes
+bmw_car = BMW()
+ferrari_car = Ferrari()
+
+# Polymorphism in action
+print("BMW Info:")
+display_car_info(bmw_car)
+
+print("\nFerrari Info:")
+display_car_info(ferrari_car)
