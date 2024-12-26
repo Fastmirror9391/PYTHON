@@ -1,0 +1,43 @@
+# Import the Pygame library
+import pygame
+
+
+
+
+
+# Initialize the Pygame library
+pygame.init()
+
+
+# Set up the display window with a width of 400 pixels and a height of 300 pixels
+screen = pygame.display.set_mode((400,300))
+done = False
+
+
+
+# A flag to keep the main loop running
+
+
+
+# Main loop
+while not done:
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      done = True
+  pygame.draw.rect(screen,(0,125,255),pygame.Rect(30,30,60,60))
+  pygame.display.flip()
+
+    # Event handling loop
+
+
+    # Draw a rectangle on the screen
+
+
+    # Update the full display Surface to the screen, essentially flipping the double buffer
+
+
+
+
+
+
+
