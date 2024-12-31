@@ -1,0 +1,50 @@
+import pygame
+
+# Initialize Pygame
+pygame.init()
+
+# Window size
+screen_width = 640
+screen_height = 480
+screen = pygame.display.set_mode((screen_width, screen_height))
+
+# Set caption
+pygame.display.set_caption("My first game screen")
+
+# Colors
+white = (255, 255, 255)
+rect_color = (0, 0, 255)  # Blue color for rectangle
+text_color = (0, 0, 0)    # Black color for text
+
+# Font and text
+font = pygame.font.Font(None, 36)
+text = font.render("Hello, Pygame!", True, text_color)
+
+# Rectangle parameters
+rect_width = 200
+rect_height = 100
+rect_x = (screen_width - rect_width) // 2  # Center position
+rect_y = (screen_height - rect_height) // 2
+
+# Main loop
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # Fill background
+    screen.fill(white)
+
+    # Draw rectangle
+    pygame.draw.rect(screen, rect_color, (rect_x, rect_y, rect_width, rect_height))
+
+    # Display text
+    text_rect = text.get_rect(center=(screen_width // 2, screen_height // 2))
+    screen.blit(text, text_rect)
+
+    # Update display
+    pygame.display.flip()
+
+# Quit Pygame
+pygame.quit()
