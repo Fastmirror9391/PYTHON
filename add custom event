@@ -1,0 +1,67 @@
+print("Saad is the best")\
+import pygame
+import random
+
+# Initialize Pygame
+pygame.init()
+
+# Screen dimensions
+WIDTH, HEIGHT = 800, 600
+
+# Colors
+WHITE = (255, 255, 255)
+COLORS = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0), (255, 0, 255), (0, 255, 255)]
+
+# Set up display
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Sprite Color Change Event")
+
+# Custom event for changing color
+CHANGE_COLOR_EVENT = pygame.USEREVENT + 1
+pygame.time.set_timer(CHANGE_COLOR_EVENT, 2000)  # Trigger every 2 seconds
+
+# Sprite class
+class MySprite(pygame.sprite.Sprite):
+    def __init__(self, x, y, color, width=50, height=50):
+        super().__init__()
+        self.image = pygame.Surface((width, height))
+        self.image.fill(color)
+        self.rect = self.image.get_rect(topleft=(x, y))
+
+    def change_color(self):
+        new_color = random.choice(COLORS)
+        self.image.fill(new_color)
+
+# Create two sprites
+sprite1 = MySprite(200, 250, random.choice(COLORS))
+sprite2 = MySprite(400, 250, random.choice(COLORS))
+
+# Group sprites for easier management
+all_sprites = pygame.sprite.Group(sprite1, sprite2)
+
+# Game loop
+running = True
+clock = pygame.time.Clock()
+
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == CHANGE_COLOR_EVENT:
+            for sprite in all_sprites:
+                sprite.change_color()
+
+    # Clear screen
+    screen.fill(WHITE)
+
+    # Draw sprites
+    all_sprites.draw(screen)
+
+    # Update display
+    pygame.display.flip()
+
+    # Limit frame rate
+    clock.tick(60)
+
+# Quit Pygame
+pygame.quit()
