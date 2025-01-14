@@ -1,0 +1,86 @@
+import pygame
+import random
+import math 
+
+#constants
+SCREEN_WIDTH=800
+SCREEN_HEIGHT=500
+PLAYER_START_X=370
+PLAYER_START_Y=370
+ENEMY_START_Y_MIN=50
+ENEMY_START_Y_MAX=150
+ENEMY_SPEED_X=4
+ENEMY_SPEED_Y=40
+BULLET_SPEED_Y=10
+COLLISON_DISTANCE=27
+
+
+
+
+
+pygame.init()
+screen=pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
+pygame.displayset_caption("Boring game 2 me like starwars")
+UFO = pygame.image.load("C:\Users\saadm\OneDrive\Desktop\Python\dd.py\Roman.py\ufo.png")
+pygame.display.set_icon(UFO)
+
+#player
+ME = pygame.image.load("C:\Users\saadm\OneDrive\Desktop\Python\dd.py\Roman.py\player.png")
+player_X=PLAYER_START_X
+player_Y=PLAYER_START_Y
+player_X_change=0
+
+
+#Enemy
+enemyImg=[]
+enemy_X=[]
+enemy_Y=[]
+enemy_change_X=[]
+enemy_change_Y=[]
+num_of_enemies=6
+
+
+for _i in range(num_of_enemies):
+    enemyImg.append(pygame.image.load('C:\Users\saadm\OneDrive\Desktop\Python\dd.py\Roman.py\enemy.png'))
+    enemy_X.append(random.randint(0,SCREEN_WIDTH-64))
+    enemy_Y.append(random.randint(ENEMY_START_Y_MIN,ENEMY_START_Y_MAX))
+    enemy_change_X.append(ENEMY_SPEED_X)
+    enemy_change_Y.append(ENEMY_SPEED_Y)
+    
+    
+#bullet
+bullet_image = pygame.image.load("C:\Users\saadm\OneDrive\Desktop\Python\dd.py\Roman.py\bullet.png")
+bullet_X=0
+bullet_Y= PLAYER_START_Y
+bulletX_change = 0
+bulletY_change = BULLET_SPEED_Y
+bullet_state="ready"
+
+
+
+#score
+
+score_value=0
+font=pygame.font.Font('freesansbold.ttf',32)
+x_text = 10
+y_text = 10
+
+#gameover text
+over_font=pygame.font.Font('freesansbold.ttf',64)
+def show_score(x,y):
+    score = font.render("Score:"+str(score_value),True,"blue")
+    screen.blit(score,(x,y))
+def game_over_text():
+    over_text = over_text.render("Game finally over",True,"red")
+    
+def player(x,y):
+    screen.blit(ME,(x,y))
+def enemy(x,y,i):
+    screen.blit(enemyImg,(x,y))   
+def fire_bullets(x,y):
+    global bullet_state
+    bullet_state="fire"
+    screen.blit(bullet_image,(x+16,y+10))
+def is_collison(enemy_X,enemy_Y,bullet_X,bullet_Y):
+    distance = math.sqrt((enemy_X-bullet_X)**2+(enemy_Y-bullet_Y)**2)
+    return distance<COLLISON_DISTANCE
