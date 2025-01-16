@@ -1,0 +1,83 @@
+import pygame
+import random
+
+
+pygame.init()
+
+
+WIDTH, HEIGHT = 800, 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Sprite Collision Game")
+
+
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
+
+# 
+PLAYER_SIZE = 50
+ENEMY_SIZE = 50
+
+
+score = 0
+
+
+player = pygame.Rect(WIDTH // 2, HEIGHT // 2, PLAYER_SIZE, PLAYER_SIZE)
+
+
+enemies = [pygame.Rect(random.randint(0, WIDTH - ENEMY_SIZE),
+                       random.randint(0, HEIGHT - ENEMY_SIZE), ENEMY_SIZE, ENEMY_SIZE) for _ in range(7)]
+
+
+clock = pygame.time.Clock()
+
+# Font for displaying the score
+font = pygame.font.Font(None, 36)
+
+
+running = True
+while running:
+    screen.fill(WHITE)
+
+    
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+   
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT] and player.left > 0:
+        player.x -= 5
+    if keys[pygame.K_RIGHT] and player.right < WIDTH:
+        player.x += 5
+    if keys[pygame.K_UP] and player.top > 0:
+        player.y -= 5
+    if keys[pygame.K_DOWN] and player.bottom < HEIGHT:
+        player.y += 5
+
+
+    pygame.draw.rect(screen, BLUE, player)
+
+    # Check for collisions and update score
+    for enemy in enemies:
+        if player.colliderect(enemy):
+            score += 1
+            # Reset enemy to a new random position
+            enemy.x = random.randint(0, WIDTH - ENEMY_SIZE)
+            enemy.y = random.randint(0, HEIGHT - ENEMY_SIZE)
+
+    for enemy in enemies:
+        pygame.draw.rect(screen, RED, enemy)
+
+    # Display score
+    score_text = font.render(f"Score: {score}", True, (0, 0, 0))
+    screen.blit(score_text, (10, 10))
+
+   
+    pygame.display.flip()
+
+   
+    clock.tick(30)
+
+# Quit Pygame
+pygame.quit()
