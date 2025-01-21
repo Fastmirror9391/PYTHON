@@ -1,0 +1,36 @@
+from tkinter import *#importing the library
+
+root=Tk()#creating window
+
+root.title("Demo work")#giving title
+
+root.geometry("400x400")#giveing width n height to ur window
+
+lbl=Label(text="Hey There", fg="red" ,bg="cyan")
+
+lbl.pack()
+lbl_name=Label(text="My name is Saad Salman", fg="blue" ,bg="yellow")
+lbl_name.pack()
+
+age_input=Entry() #input box
+
+age_input.pack()
+
+textarea=Text()
+def display():
+    global text
+    text="Welcome to my application"
+    textarea.insert(END,text)
+    age=age_input.get()
+    textarea.insert("2.0",age)
+
+
+
+
+btn=Button(text="Let's began ",command=display)
+btn.pack()
+textarea.pack()
+
+
+    
+root.mainloop()#very important for execution
