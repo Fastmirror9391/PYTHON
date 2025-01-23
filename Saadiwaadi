@@ -1,0 +1,26 @@
+from tkinter import *
+root=Tk()
+
+root.title("Boring Number Pad")
+root.geometry('400x400')
+
+nums=[[7,8,9],[4,5,6],[1,2,3],[0,'#','*']]
+for i in range(4):
+    root.columnconfigure(i,weight=1,minsize=75)
+    root.rowconfigure(i,weight=1,minsize=75)
+for j in range(4):
+    for i in range(3):
+        frame=Frame(master=root,relief=RAISED,borderwidth=1,bg='navyblue')
+        frame.grid(row=j,column=i,sticky="nsew")
+        lbl=Label(master=frame,text=nums[j][i])
+        lbl.pack(expand=True,fill="both",padx=5,pady=5)
+
+
+
+
+
+
+root.mainloop()
+        
+
+        
