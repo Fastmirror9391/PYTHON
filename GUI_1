@@ -1,0 +1,35 @@
+from tkinter import*
+root=Tk()
+root.title("BORING CHAI+LOGING")
+root.geometry('900x900')
+
+adrak_chai=Frame(master=root,height=700,width=700,bg='yellow')
+
+lbl1=Label(adrak_chai,text="Full Name",fg="red",bg='black')
+lbl2 = Label(adrak_chai,text="Email",fg="pink",bg="blue")
+lbl3 = Label(adrak_chai,text="Password",fg="orange",bg="blue")
+
+name_entry=Entry()
+email_entry=Entry()
+password_entry=Entry()
+
+def login():
+    hold_name=name_entry.get()
+    greet="Hey! "+ hold_name
+    msg="\n Congratulation for your new goofi account, Welcome to goofi.com "
+    textarea.insert(END,greet)
+    textarea.insert(END,msg)
+textarea = Text()
+
+btn = Button(text="Create goofi account",command=login)
+adrak_chai.place(x=20,y=0)
+lbl1.place(x=20,y=20)
+name_entry.place(x=150,y=20)
+lbl2.place(x=20,y=80)
+email_entry.place(x=150,y=80)
+lbl3.place(x=20,y=150)
+password_entry.place(x=150,y=150)
+btn.place(x=250,y=250)
+textarea.place(y=300)
+root.mainloop()  
+
