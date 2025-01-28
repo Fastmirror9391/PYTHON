@@ -1,0 +1,12 @@
+#Create a Tkinter Application which consists of a root window with a button (with text Scan for the virus). When this button is clicked, it will generate a message box that shows a warning: Stop! Virus Found.
+from tkinter import*
+from tkinter import messagebox
+root=Tk()
+root.title("message lesson")
+root.geometry("400x400")
+def scan_virus():
+    messagebox.showwarning("Light Warning","Stop!!!! virus found ur money got stolen")
+btn=Button(root,text="Scan my chai" ,command=scan_virus)
+btn.pack()
+
+root.mainloop()
