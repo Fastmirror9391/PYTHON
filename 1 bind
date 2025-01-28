@@ -1,0 +1,17 @@
+#Write a program to handle the events of Keypress and Button click using the Python library Tkinter.
+from tkinter import*
+root=Tk()
+root.title("binding")
+root.geometry("400x400")
+lbl=Label(root,text="Press a  key or a button.",bg="blue")
+lbl.pack()
+
+def key_press(event):
+    lbl['text']="key pressed :"+ event.char
+def pressed_button():
+    lbl["text"]="button clicked"
+btn = Button(root,text="Do not click this this is a SC**!",command=pressed_button)
+btn.pack()
+root.bind("<Key>",key_press)    
+    
+root.mainloop()
