@@ -15,12 +15,12 @@ def calculate_age():
     except ValueError:
         result_label.config(text="Please enter valid numbers for date, month, and year.")
 
-# Create main window
+
 root = tk.Tk()
 root.title("Age Calculator App")
 root.geometry("400x400")
 
-# Labels and Entry Fields
+
 tk.Label(root, text="Name:").grid(row=0, column=0, padx=10, pady=5, sticky="e")
 name_entry = tk.Entry(root)
 name_entry.grid(row=0, column=1, padx=10, pady=5)
@@ -37,13 +37,11 @@ tk.Label(root, text="Birth Year (YYYY):").grid(row=3, column=0, padx=10, pady=5,
 year_entry = tk.Entry(root)
 year_entry.grid(row=3, column=1, padx=10, pady=5)
 
-# Calculate Button
 calc_button = tk.Button(root, text="Calculate Age", command=calculate_age)
 calc_button.grid(row=4, column=0, columnspan=2, pady=10)
 
-# Result Label
 result_label = tk.Label(root, text="", font=("Arial", 12))
 result_label.grid(row=5, column=0, columnspan=2, pady=10)
 
-# Run the application
+
 root.mainloop()
